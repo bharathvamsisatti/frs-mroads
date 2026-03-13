@@ -1,0 +1,26 @@
+{
+  "name": "ftp-puller",
+  "version": "1.0.0",
+  "description": "FTP puller service for face recognition attendance system",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.2",
+    "basic-ftp": "^5.0.3",
+    "dotenv": "^16.3.1",
+    "form-data": "^4.0.0",
+    "sqlite3": "^5.1.7",
+    "uuid": "^9.0.1",
+    "ws": "^8.19.0"
+  },
+  "keywords": [
+    "ftp",
+    "face-recognition",
+    "attendance"
+  ],
+  "author": "",
+  "license": "ISC"
+}

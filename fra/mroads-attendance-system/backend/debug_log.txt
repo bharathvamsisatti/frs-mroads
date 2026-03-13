@@ -1,0 +1,21 @@
+--- Debugging User: Anusha ---
+
+1. Checking /enrolled endpoint...
+Enrolled users: ['Anusha', 'Hruday', 'Srinu', 'bharath', 'manikanta reddy', 'srijan']
+
+Testing detailed fetch for random user: 'Anusha'
+Status for '/user/Anusha': 404
+Status for '/api/user/Anusha': 404
+Status for '/api/v1/user/Anusha': 404
+✅ 'Anusha' is in the enrolled list.
+
+2. Checking /user/Anusha endpoint...
+
+2. Checking /user/Anusha endpoint...
+Status Code: 404
+Response: {"detail":"Not Found"}
+
+3. Checking Local Database (attendance.db)...
+Enrolled users in LOCAL DB: 0
+Total transactions for 'Anusha': 0
+Sample users in DB: ['Unknown User']

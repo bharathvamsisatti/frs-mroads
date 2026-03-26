@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Environment files
+.env.local
+.env.production
+
+# Keep .env.example for documentation
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+temp/
+processed_files.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Project specific - run folder (unused files)
+run/

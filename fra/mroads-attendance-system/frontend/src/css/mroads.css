@@ -1,0 +1,109 @@
+@font-face {
+  font-family: 'Mroads';
+  src: url('../fonts/Mroads-Light.woff2') format('woff2'),
+       url('../fonts/Mroads-Light.woff') format('woff'),
+       url('../fonts/Mroads-Light.ttf') format('truetype');
+       font-weight: 300;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Mroads';
+  src: url('../fonts/Mroads-LightItalic.woff2') format('woff2'),
+       url('../fonts/Mroads-LightItalic.woff') format('woff'),
+       url('../fonts/Mroads-LightItalic.ttf') format('truetype');
+       font-weight: 300;
+       font-display: swap;
+       font-style: italic;
+}
+
+
+@font-face {
+  font-family: 'Mroads';
+  src: url('../fonts/Mroads-Regular.woff2') format('woff2'),
+       url('../fonts/Mroads-Regular.woff') format('woff'),
+       url('../fonts/Mroads-Regular.ttf') format('truetype');
+       font-weight: 400;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Mroads';
+  src: url('../fonts/Mroads-Italic.woff2') format('woff2'),
+       url('../fonts/Mroads-Italic.woff') format('woff'),
+       url('../fonts/Mroads-Italic.ttf') format('truetype');
+       font-weight: 400;
+       font-display: swap;
+       font-style: italic;
+}
+
+
+@font-face {
+  font-family: 'Mroads';
+  src: url('../fonts/Mroads-Medium.woff2') format('woff2'),
+       url('../fonts/Mroads-Medium.woff') format('woff'),
+       url('../fonts/Mroads-Medium.ttf') format('truetype');
+       font-weight: 500;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Mroads';
+  src: url('../fonts/Mroads-MediumItalic.woff2') format('woff2'),
+       url('../fonts/Mroads-MediumItalic.woff') format('woff'),
+       url('../fonts/Mroads-MediumItalic.ttf') format('truetype');
+       font-weight: 500;
+       font-display: swap;
+       font-style: italic;
+}
+
+
+@font-face {
+  font-family: 'Mroads';
+  src: url('../fonts/Mroads-Bold.woff2') format('woff2'),
+       url('../fonts/Mroads-Bold.woff') format('woff'),
+       url('../fonts/Mroads-Bold.ttf') format('truetype');
+       font-weight: 700;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Mroads';
+  src: url('../fonts/Mroads-BoldItalic.woff2') format('woff2'),
+       url('../fonts/Mroads-BoldItalic.woff') format('woff'),
+       url('../fonts/Mroads-BoldItalic.ttf') format('truetype');
+       font-weight: 700;
+       font-display: swap;
+       font-style: italic;
+}
+
+
+@font-face {
+  font-family: 'Mroads';
+  src: url('../fonts/Mroads-Black.woff2') format('woff2'),
+       url('../fonts/Mroads-Black.woff') format('woff'),
+       url('../fonts/Mroads-Black.ttf') format('truetype');
+       font-weight: 900;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Mroads';
+  src: url('../fonts/Mroads-BlackItalic.woff2') format('woff2'),
+       url('../fonts/Mroads-BlackItalic.woff') format('woff'),
+       url('../fonts/Mroads-BlackItalic.ttf') format('truetype');
+       font-weight: 900;
+       font-display: swap;
+       font-style: italic;
+}
+

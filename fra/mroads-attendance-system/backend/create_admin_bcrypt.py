@@ -1,23 +1,21 @@
 """
 Create admin user using raw bcrypt library directly to avoid passlib issues
 """
-import sqlite3
 import uuid
 import bcrypt
-
-db_path = "attendance.db"
+from utils import get_db_connection
 
 try:
-    conn = sqlite3.connect(db_path)
+    conn = get_db_connection()
     c = conn.cursor()
     
     # Create users table if not exists
     c.execute('''CREATE TABLE IF NOT EXISTS users (
-        id TEXT PRIMARY KEY,
-        email TEXT NOT NULL UNIQUE,
-        password_hash TEXT NOT NULL,
-        name TEXT NOT NULL,
-        role TEXT NOT NULL DEFAULT 'user',
+        id VARCHAR(255) PRIMARY KEY,
+        email VARCHAR(255) NOT NULL UNIQUE,
+        password_hash VARCHAR(255) NOT NULL,
+        name VARCHAR(255) NOT NULL,
+        role VARCHAR(50) NOT NULL DEFAULT 'user',
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )''')
     
@@ -33,7 +31,7 @@ try:
     admin_id = str(uuid.uuid4())
     c.execute("""
         INSERT INTO users (id, email, password_hash, name, role)
-        VALUES (?, ?, ?, ?, ?)
+        VALUES (%s, %s, %s, %s, %s)
     """, (admin_id, "admin@gmail.com", password_hash, "Admin User", "admin"))
     
     conn.commit()

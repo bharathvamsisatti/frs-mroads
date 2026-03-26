@@ -1,11 +1,11 @@
 
 import requests
-import sqlite3
+from utils import get_db_connection
 import os
 
 DEV_SERVER_URL = "https://dev-fra.mroads.com"
 USER_TO_CHECK = "Anusha"
-DB_PATH = "attendance.db"
+DB_PATH = "attendance_db"
 LOG_FILE = "debug_log.txt"
 
 def log(msg):
@@ -80,11 +80,10 @@ except Exception as e:
     log(f"❌ Error fetching user details: {e}")
 
 # 3. Check Local Database Stats
-log(f"\n3. Checking Local Database ({DB_PATH})...")
-if os.path.exists(DB_PATH):
-    try:
-        conn = sqlite3.connect(DB_PATH)
-        c = conn.cursor()
+log(f"\n3. Checking Local Database...")
+try:
+    conn = get_db_connection()
+    c = conn.cursor()
         
         # Check enrolled_users table
         try:
@@ -100,7 +99,7 @@ if os.path.exists(DB_PATH):
             log(f"Error reading enrolled_users table: {e}")
 
         # Check specific user
-        c.execute("SELECT COUNT(*) FROM attendance_transactions WHERE person_id = ?", (USER_TO_CHECK,))
+        c.execute("SELECT COUNT(*) FROM attendance_transactions WHERE person_id = %s", (USER_TO_CHECK,))
         count = c.fetchone()[0]
         log(f"Total transactions for '{USER_TO_CHECK}': {count}")
         
@@ -112,5 +111,3 @@ if os.path.exists(DB_PATH):
         conn.close()
     except Exception as e:
         log(f"❌ Database error: {e}")
-else:
-    log("❌ Database file not found!")

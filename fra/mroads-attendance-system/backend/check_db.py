@@ -1,24 +1,18 @@
 
-import sqlite3
 import os
+from utils import get_db_connection
 from tabulate import tabulate # You might need to install this: pip install tabulate
 # If tabulate is not available, we'll use simple printing
 
-DB_PATH = "attendance.db"
-
 def check_database():
-    if not os.path.exists(DB_PATH):
-        print(f"❌ Database file '{DB_PATH}' not found!")
-        return
-
-    print(f"📂 Connected to database: {DB_PATH}\n")
+    print(f"📂 Connected to MySQL database attendance_db\n")
     
     try:
-        conn = sqlite3.connect(DB_PATH)
+        conn = get_db_connection()
         c = conn.cursor()
         
         # 1. List all tables
-        c.execute("SELECT name FROM sqlite_master WHERE type='table';")
+        c.execute("SHOW TABLES")
         tables = c.fetchall()
         
         if not tables:
@@ -38,13 +32,13 @@ def check_database():
             print(f"   Rows: {count}")
             
             # Get columns info
-            c.execute(f"PRAGMA table_info({table_name})")
+            c.execute(f"DESCRIBE {table_name}")
             columns = c.fetchall()
-            # columns format: (cid, name, type, notnull, dflt_value, pk)
+            # columns format: (Field, Type, Null, Key, Default, Extra)
             print("   Columns:")
             for col in columns:
-                pk = "🔑" if col[5] else ""
-                print(f"     - {col[1]} ({col[2]}) {pk}")
+                pk = "🔑" if col[3] == 'PRI' else ""
+                print(f"     - {col[0]} ({col[1]}) {pk}")
 
             # Show sample data (first 3 rows)
             if count > 0:

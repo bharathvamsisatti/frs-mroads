@@ -238,13 +238,13 @@ async def get_transactions(limit: int = 1000, offset: int = 0):
 async def get_transaction_detail(transaction_id: str):
     """Get a specific transaction with image URLs."""
     try:
-        import sqlite3
-        from utils import ATTENDANCE_DB_PATH
+        from utils import get_db_connection
         
-        with sqlite3.connect(ATTENDANCE_DB_PATH) as conn:
-            conn.row_factory = sqlite3.Row
-            c = conn.cursor()
-            c.execute("SELECT * FROM attendance_transactions WHERE id = ?", (transaction_id,))
+        conn = get_db_connection()
+        try:
+            conn.row_factory = None
+            c = conn.cursor(dictionary=True)
+            c.execute("SELECT * FROM attendance_transactions WHERE id = %s", (transaction_id,))
             row = c.fetchone()
             
             if not row:
@@ -256,6 +256,8 @@ async def get_transaction_detail(transaction_id: str):
                 "captured_image_url": transaction_dict.get('captured_image_url'),
                 "enrolled_image_url": transaction_dict.get('image_url')
             }
+        finally:
+            conn.close()
     except Exception as e:
         logger.error(f"Error getting transaction detail: {e}")
         return {"error": str(e), "status_code": 500}
